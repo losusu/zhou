@@ -1,0 +1,223 @@
+<!doctype html>
+<html  lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>中外剧集对比</title>
+	<link rel="stylesheet" href="../css/contrast.css">
+	
+</head>
+
+<body>
+	<div>
+	   <ul id="navbar">
+		<li><b><a href="../../index/html/index.html">首页</a></b></li>
+		<li><b><a href="../../Cajun Pie/html/Cajun Pie.html">国剧之母</a></b></li>
+		<li><b><a href="../../stock-taking/html/stock-taking.html">国剧盘点</a></b></li>
+		<li><b><a href="../../tendency/html/tendency.html">国剧现状及趋势</a></b></li>
+		<li><b><a href="contrast.html">中外剧集对比</a></b></li>
+	   </ul>
+  	</div>
+	<main>
+		<div class="pimg1">
+			<div class="container">
+				<h1>各年龄段人群在网络上对中、美、韩剧的搜索比例</h1>	
+			</div>
+			
+			<div id="dataone"></div>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+		   <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+		   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+		   <script type="text/javascript">
+				var dom = document.getElementById("dataone");
+				var myChart = echarts.init(dom);
+				var app = {};
+				option = null;
+				option = {
+					legend: {},
+					tooltip: {},
+					dataset: {
+						dimensions: ['product', '国产剧', '美剧', '韩剧'],
+						source: [
+							{product: '≤19', '国产剧': 5.56, '美剧': 7.18, '韩剧': 9.97},
+							{product: '20~29', '国产剧': 55.11, '美剧': 53.9, '韩剧': 51.48},
+							{product: '30~39', '国产剧': 32.5, '美剧': 31.21, '韩剧': 27.53},
+							{product: '40~49', '国产剧': 10.69, '美剧': 6.87, '韩剧': 9.89},
+							{product: '≥50', '国产剧': 0.14, '美剧': 0.84, '韩剧': 1.15}
+						]
+					},
+					xAxis: {type: 'category',name:'年龄'},
+					yAxis: {type:'value',name:'百分比'},
+					// Declare several bar series, each will be mapped
+					// to a column of dataset.source by default.
+					series: [
+						{type: 'bar'},
+						{type: 'bar'},
+						{type: 'bar'}
+					]
+				};
+				;
+				if (option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+       		</script>
+			
+			<div id="datathree">
+				<script type="text/javascript">
+					var dom = document.getElementById("datathree");
+					var myChart = echarts.init(dom);
+					var app = {};
+					option = null;
+					option = {
+						title: {
+							text: '观看中、美、韩剧的性别差异',
+							subtext: '来源于网络',
+							left: 'center'
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: '{a} <br/>{b} : {c} ({d}%)'
+						},
+						legend: {
+							left: 'center',
+							top: 'bottom',
+							data: ['rose1', 'rose2', 'rose3']
+						},
+						toolbox: {
+							show: true,
+							feature: {
+								mark: {show: true},
+								dataView: {show: true, readOnly: false},
+								magicType: {
+									show: true,
+									type: ['pie', 'funnel']
+								},
+								restore: {show: true},
+								saveAsImage: {show: true}
+							}
+						},
+						series: [
+							{
+								name: '女性',
+								type: 'pie',
+								radius: [20, 110],
+								center: ['25%', '50%'],
+								roseType: 'radius',
+								label: {
+									show: false
+								},
+								emphasis: {
+									label: {
+										show: true
+									}
+								},
+								data: [
+									{value: 60.14, name: '国产剧'},
+									{value: 24.54, name: '美剧'},
+									{value: 61.34, name: '韩剧'},
+								]
+							},
+							{
+								name: '男性',
+								type: 'pie',
+								radius: [30, 110],
+								center: ['75%', '50%'],
+								roseType: 'area',
+								data: [
+									{value: 39.86, name: '国产剧'},
+									{value: 75.46, name: '美剧'},
+									{value: 38.66, name: '韩剧'},
+								]
+							}
+						]
+					};
+					;
+					if (option && typeof option === "object") {
+						myChart.setOption(option, true);
+					}
+		   </script>
+		</div>
+		</div>
+		
+		<div class="pimg2">
+			<div class="container">
+				<h1>2019年国产剧TOP10剧集</h1>
+				<div id="datatwo"></div>
+				<script type="text/javascript">
+					var dom = document.getElementById("datatwo");
+					var myChart = echarts.init(dom);
+					var app = {};
+					option = null;
+					option = {
+						series: [{
+							type: 'treemap',
+							data: [{
+								name: '陈情令',            // First tree
+								value: 10,
+								children: [{
+									name: '庆余年',       // First leaf of first tree
+									value: 9
+								}, {
+									name: '鹤唳华亭',       // Second leaf of first tree
+									value: 8
+								},{
+									name:'长安十二时辰',
+									value: 7
+								},{
+									name:'亲爱的热爱的',
+									value: 6
+								},{
+									name:'都挺好',
+									value: 5
+								},{
+									name:'破冰行动',
+									value: 4
+								},{
+									name:'东宫',
+									value: 3
+								},{
+									name:'大江大河',
+									value: 2
+								},{
+									name:'小欢喜',
+									value: 1
+								}]
+							}, {
+								name: '陈情令',            // Second tree
+								value: 20,
+								children: [{
+									name: '庆余年',       // Son of first tree
+									value: 20,
+									children: [{
+										name: '陈情令',  // Granson of first tree
+										value: 20
+									}]
+								}]
+							}]
+						}]
+					};
+					;
+					if (option && typeof option === "object") {
+						myChart.setOption(option, true);
+					}
+				</script>
+			</div>
+			<br/><br/><br/><br/>
+			<h1>中、美、韩电视剧制作机制差异分析</h1>
+			<img src="../img/中外电视剧对比.png" alt="中、美、美电视剧制作机制差异分析" class="imgset"/>
+			<p>数据来源</p>
+			<p>百度指数&nbsp;&nbsp;|&nbsp;&nbsp;搜狗指数&nbsp;&nbsp;|&nbsp;&nbsp;《中韩电视剧制作机制差异分析》卢焱&nbsp;&nbsp;|&nbsp;&nbsp;《中美广播电视宏观管理体制比较》梁山&nbsp;&nbsp;|&nbsp;&nbsp;艾媒数据中心</p>
+		</div>
+		
+				
+	</main>
+	
+	 
+	
+</body>
+	
+</html>
